@@ -1,0 +1,155 @@
+﻿<!doctype html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <title>趣味ー料理作り</title>
+    <meta name="description" content="ページ説明文">
+    <meta name="keywords" content="ページ,キーワード">
+    <meta name="viewport" content="width=device-width, user-scalable=no">
+    <style type="text/css">
+            div{
+                text-align: center; font-size: x-large;
+            }
+            
+            a{
+        margin-right:10px;
+        margin-left:10px;
+        color:black;
+        display: inline-block;
+        position: relative;
+        text-decoration: none;
+        }
+        
+        a:before{
+            content: "";
+            position: absolute;
+            left: 0;
+            bottom: -4px;
+            width: 100%;
+            height: 3px;
+            background:rgb(7, 87, 207);
+            transform: scale(0,1);
+            transition: 0.4s;
+        }
+
+        a:hover:before{
+            transform: scale(1);
+        }
+
+    </style>
+</head>
+<body style="background-image:url(fu.jpg); background-size:cover; background-attachment:fixed;">
+
+    <header style="color:black">
+        <nav>
+            <a href="./home.html">ホームページ</a>
+            <a href="./gakureki.html">学歴</a>
+            <a href="./shakuhachi.html">最愛<span style="color:red">♥</span>尺八</a>
+            <a href="./ryouri.html">趣味ー料理作り</a>
+            <a href="./game.html">趣味ーゲーム（PS4）</a>
+        </nav>
+        <h1>料理作り</h1>
+        <h3>故郷の味を自分で再現するのが大好き！</h3>
+    </header>
+
+
+    <div style="color:black">
+        <p>
+            一番上手な料理：回鍋肉
+            <section>
+                      <img src="./IMG_20190403_194758.jpg"; style="width:624px; height:780px" title="回鍋肉";>
+            </section><br><br>
+
+            <br>よく作る料理：<br>
+            卵とトマトの炒め<br>
+            <section>
+                <img src="./IMG_20181005_183133.jpg" ; style="width:624px; height:780px" title="卵とトマトの炒め"><br><br>
+            </section><br><br>
+
+            レタスとニンニクの炒め<br>
+            <section>
+                <img src="./IMG_20190414_201451.jpg" ; style="width:624px; height:780px" title="レタスとニンニクの炒め"> <br><br>
+            </section><br><br>
+
+            ブロッコリーと牛肉の炒め<br>
+            <section>
+                <img src="./IMG_20190324_203918.jpg" ; style="width:624px; height:780px" title="ブロッコリーと牛肉の炒め"><br><br>
+            </section><br><br>
+
+            きのこと豚肉の炒め<br>
+            <section>
+                <img src="./IMG_20190408_201523.jpg" ; style="width:624px; height:780px" title="きのこと豚肉の炒め"><br><br>
+            </section><br><br>
+
+            豚肉とじゃがいもの炒め<br>
+            <section>
+                <img src="./IMG_20190520_193551.jpg" ; style="width:624px; height:780px" title="豚肉とじゃがいもの炒め"><br><br>
+            </section><br><br>
+
+            トムヤムクンフォー<br>
+            <section>
+                <img src="./IMG_20190118_222135.jpg" ; style="width:624px; height:780px" title="トムヤムクンフォー"><br><br>
+            </section><br><br>
+
+            ローシーフォー(巻き貝フォー)<br>
+            <section>
+                <img src="./IMG_20190321_205944.jpg" ; style="width:624px; height:780px" title="ローシーフォー(巻き貝フォー)"><br><br>
+            </section><br><br>
+        </p>
+    </div>
+
+
+
+<script>
+    window.onload = function() {
+      var aDiv = document.getElementsByTagName("section");
+      for (var index = 0; index < aDiv.length; index++) {
+        aDiv[index].timer = null;
+        aDiv[index].alpha = 30;
+        aDiv[index].onmouseover = function () {
+          startMove(this, 100);
+        }
+        aDiv[index].onmouseout = function () {
+          startMove(this, 30);
+        }
+      }
+    }
+      
+    function startMove(obj, iTarget) {
+      
+      clearInterval(obj.timer);
+      
+      obj.timer = setInterval(function() {
+        var speed = (iTarget - obj.alpha) / 10;
+        speed = speed > 0 ? Math.ceil(speed) : Math.floor(speed);
+        if (obj.alpha == iTarget) {
+          clearInterval(obj.timer);
+        } else {
+          obj.alpha += speed;
+          obj.style.filter = "alpha(opacity:" + obj.alpha + ")";
+          obj.style.opacity = obj.alpha / 100;
+        }
+      }, 30);
+    }
+    </script>
+
+
+
+
+    <p>
+        <label style="color:black;font-size:larger">この中で一番食べたい料理：<input name="sampleText"></label>
+        <button>提出</button>
+    </p>
+
+    <br>
+    <br>
+
+    <footer style="color:black;">
+        引用：<br>
+        餃子の写真：https://travel.ettoday.net/article/1429955.html<br>
+        Javascript：http://www.softwhy.com/article-7409-1.html
+    </footer>
+
+
+</body>
+</html>
